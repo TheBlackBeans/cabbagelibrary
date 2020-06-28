@@ -6,6 +6,15 @@ class Book:
         "Collection",
         "ISBN"
     ]
+    meta_map = {
+        "ISBN-13": ("ISBN", lambda x: x),
+        "Title": ("Title", lambda x: x),
+        "Authors": ("Author", lambda x: ", ".join(x)),
+        "Publisher": ("Edition", lambda x: x),
+        "Year": (None, None),
+        "Language": (None, None),
+        "ISBN-10": ("ISBN", lambda x: x)
+    }
     size = len(attributes) + 1
     def __init__(self, *args):
         if len(args) != self.size:
